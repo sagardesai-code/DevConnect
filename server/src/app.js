@@ -1,12 +1,16 @@
 const express = require("express");
 const app = express();
+app.use(express.json());
+
+const userRoutes = require("./routes/user.routes");
 
 app.get("/", (req, res) => {
-res.json({
-    success: true,
-    message: "Welcome to DevConnect API Version 2 🚀"
+    res.json({
+        success: true,
+        message: "Welcome to DevConnect API Version 2 🚀"
+    });
 });
-});
+
+app.use("/api/users", userRoutes);
 
 module.exports = app;
-
