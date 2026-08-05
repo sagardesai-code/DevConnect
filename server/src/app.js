@@ -3,6 +3,7 @@ const app = express();
 app.use(express.json());
 
 const userRoutes = require("./routes/user.routes");
+const postRoutes = require("./routes/post.routes");
 
 app.get("/", (req, res) => {
     res.json({
@@ -12,5 +13,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users", userRoutes);
+app.use("/api/posts", postRoutes);
 
 module.exports = app;
