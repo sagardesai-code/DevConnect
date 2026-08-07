@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://devconnect-obop.onrender.com/api"
+  baseURL: "https://devconnect-obop.onrender.com/api",
 });
 
 // Attach JWT token to every request
@@ -14,6 +14,16 @@ api.interceptors.request.use((config) => {
 
   return config;
 });
+
+// =========================
+// Authentication
+// =========================
+
+export const registerUser = (userData) =>
+  api.post("/users/register", userData);
+
+export const loginUser = (userData) =>
+  api.post("/users/login", userData);
 
 // =========================
 // Posts
