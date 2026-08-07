@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import api from "../services/api";
 
@@ -38,6 +38,7 @@ function Login() {
       setTimeout(() => {
         navigate("/home");
       }, 800);
+
     } catch (error) {
       toast.error(
         error.response?.data?.message || "Login failed"
@@ -105,6 +106,16 @@ function Login() {
           >
             {loading ? "Logging in..." : "Login"}
           </button>
+
+          <p className="text-center mt-6 text-gray-600">
+            Don't have an account?{" "}
+            <Link
+              to="/register"
+              className="text-blue-600 font-semibold hover:underline"
+            >
+              Register here
+            </Link>
+          </p>
 
         </form>
 
