@@ -1,16 +1,16 @@
 const mongoose = require("mongoose");
 
 const connectDB = async () => {
-    try {
-        await mongoose.connect("mongodb://127.0.0.1:27017/devconnect");
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
 
-        console.log("MongoDB Connected Successfully ✅");
-    } catch (error) {
-        console.log("Database Connection Failed ❌");
-        console.log(error.message);
+    console.log("MongoDB Connected Successfully ✅");
+  } catch (error) {
+    console.log("Database Connection Failed ❌");
+    console.log(error.message);
 
-        process.exit(1);
-    }
+    process.exit(1);
+  }
 };
 
 module.exports = connectDB;
